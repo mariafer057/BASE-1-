@@ -13,10 +13,10 @@ Mostra_produtos(){
 class ProdutoDestaque extends Produto{
 constructor (Nome, DataCadastro, Descricao, Preco, img){
 super(Nome, DataCadastro, Descricao, Preco)
-this.img = img;
+this.img = img ;
 }
 
-mostrar_produtos_destaque(){
+mostrar_produtos_destaque(){ 
     return `<div><center><img  class = "img" src= "${this.img}"></img><center></div>
             <div class = "descricao">${this.Nome}</div>
             <div class = "descricao">${this.DataCadastro}</div>
