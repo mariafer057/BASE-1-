@@ -11,22 +11,25 @@ Mostra_produtos(){
     }
 }
 class ProdutoDestaque extends Produto{
-constructor (Nome, DataCadastro, Descricao, Preco, imagemDestaque){
+constructor (Nome, DataCadastro, Descricao, Preco, img){
 super(Nome, DataCadastro, Descricao, Preco)
-this.imagemDestaque = imagemDestaque;
+this.img = img;
 }
 
-Mostra_produtosDestaque(){
-    return <div class = "Celular">${this.Nome}</div>;
-            <div>${this.DataCadastro}</div>
-    //return this.Nome + this.DataCadastro + this.Descricao + this.Preco + this.imagemDestaque
+mostrar_produtos_destaque(){
+    return `<div><center><img  class = "img" src= "${this.img}"></img><center></div>
+            <div class = "descricao">${this.Nome}</div>
+            <div class = "descricao">${this.DataCadastro}</div>
+            <div class = "descricao">${this.Descricao}</div>
+            <div class = "descricao">${this.Preco}</div>`
+            
     }
 }
 let produto = new Produto("Celular", "lindo", "Funcionavel" , 999)
 console.log(produto.Mostra_produtos())
 
-let produtodestaque = new ProdutoDestaque("Celular", "lindo", "Funcionavel" , 999, "www.imagemdecelular.com")
-console.log(produtodestaque.Mostra_produtosDestaque())
+let produtodestaque = new ProdutoDestaque("Celular", "lindo", "Funcionavel" , 3299.5, "https://promart.vteximg.com.br/arquivos/ids/6595611-1000-1000/image-53627b1653414a18aea7bdb523da276e.jpg?v=638036474695230000")
+console.log(produtodestaque.mostrar_produtos_destaque())
 
-const div = document.getElementById('produto-destaque');
-div.insertAdjacentHTML('afterbegin', produto.Mostra_produtosDestaque())
+const div = document.getElementById("produto-destaque");
+div.insertAdjacentHTML('afterbegin', produtodestaque.mostrar_produtos_destaque())
