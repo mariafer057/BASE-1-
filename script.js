@@ -62,3 +62,12 @@ console.log(produtodestaque5.mostrar_produtos_destaque())
 const div5 = document.getElementById("produto-destaque");
 div5.insertAdjacentHTML('afterbegin', produtodestaque5.mostrar_produtos_destaque())
 
+let produtodestaque6 = new ProdutoDestaque("Celular", "lindo", "Funcionavel" , 8299.6, "https://m.media-amazon.com/images/I/51misXwIxAL._AC_SX679_.jpg")
+console.log(produtodestaque6.mostrar_produtos_destaque())
+const div6 = document.getElementById("produto-destaque");
+div6.insertAdjacentHTML('afterbegin', produtodestaque6.mostrar_produtos_destaque())
+
+let produtodestaque7 = new ProdutoDestaque("Celular", "lindo", "Funcionavel" , 8299.6, "https://m.media-amazon.com/images/I/71iO2R+CLjL._AC_SX679_.jpg")
+console.log(produtodestaque7.mostrar_produtos_destaque())
+const div7 = document.getElementById("produto-destaque");
+div7.insertAdjacentHTML('afterbegin', produtodestaque7.mostrar_produtos_destaque())
