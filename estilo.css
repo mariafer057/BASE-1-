@@ -1,9 +1,10 @@
 body {
-  background: #a99fef;
+  background: #80a285;
 }
 
 .descricao{
 text-align: center;
+color: #fff;
 }
 
 h1, h2{
@@ -18,7 +19,7 @@ font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, O
 }
 
 .produto-card{
-  background-color: #fff;
+  background-color: #486d48;
   display: inline-block;
   width: 250px;
   height: 320px;
