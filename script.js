@@ -1,4 +1,12 @@
 //empresaProduto
+class MeuErro extends Error {
+    constructor(message){
+      super(message);
+      this.name = "Meu Erro";
+    }
+  }
+  
+
 class Produto{
     constructor (Nome, DataCadastro, Descricao, Preco){
     this.Nome = Nome;
@@ -6,34 +14,66 @@ class Produto{
     this.Descricao = Descricao;
     this.Preco = Preco;
 }
-Mostra_produtos(){
-    return this.Nome + this.DataCadastro + this.Descricao + this.Preco
+
+mostrarAtributos() {
+    try {
+      return this.mostrar_produtos_destaque();
+    } catch (error) {
+      return error
     }
+  }
+
+Mostra_produtos(){
+    if(this.Nome != "" && this.DataCadastro != "" && this.Descricao != "" && this.Preco != "" && this.Preco != "" ){
+        return`
+                    <img  class = "img" src= "${this.img}"></img>
+                    <div class = "descricao">${this.Nome}</div>
+                    <div class = "descricao">${this.DataCadastro}</div>
+                    <div class = "descricao">${this.Descricao}</div>
+                    <div class = "descricao">${this.Preco}</div>
+                    `
+            }
+            else{
+                throw new MeuErro ("Esta faltando alguma coisa")
+        }
+     }
 }
+
 class ProdutoDestaque extends Produto{
 constructor (Nome, DataCadastro, Descricao, Preco, img){
 super(Nome, DataCadastro, Descricao, Preco)
 this.img = img ;
 }
 
+mostrarAtributos() {
+    try {
+      return this.mostrar_produtos_destaque();
+    } catch (erro) {
+      console.log(erro.stack)
+    }
+  }
+
 mostrar_produtos_destaque(){ 
-    return `<div class = "produto-card">
-    <center>
+    if(this.Nome != "" && this.DataCadastro != "" && this.Descricao != "" && this.Preco != "" && this.Preco != "" ){
+return`
             <img  class = "img" src= "${this.img}"></img>
             <div class = "descricao">${this.Nome}</div>
             <div class = "descricao">${this.DataCadastro}</div>
             <div class = "descricao">${this.Descricao}</div>
             <div class = "descricao">${this.Preco}</div>
-            </center>
-        </div>`
+            ` 
+    }  
+    else{
+        throw new MeuErro ("Esta faltando alguma coisa")
     }
 }
+}
 
-let produto = new Produto("Tenis", 999)
+let produto = new Produto("Celular", 999)
 console.log(produto.Mostra_produtos())
 
 let produtodestaque = new ProdutoDestaque("Celular", "lindo", "Funcionavel" , 3299.5, "https://m.media-amazon.com/images/I/71kZfQA-Y7L._AC_SX679_.jpg")
-console.log(produtodestaque.mostrar_produtos_destaque())
+console.log(produtodestaque.mostrarAtributos())
 const div = document.getElementById("produto-destaque");
 div.insertAdjacentHTML('afterbegin', produtodestaque.mostrar_produtos_destaque())
 
